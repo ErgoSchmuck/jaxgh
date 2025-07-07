@@ -1,7 +1,6 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -12,43 +11,86 @@ export default function HomeScreen() {
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
+          source={require('@/assets/images/asq placeholder logo.png')}
           style={styles.reactLogo}
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">TESTTTTTT!</ThemedText>
-        <HelloWave />
+        <ThemedText type="title">ASQ!</ThemedText>
       </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
+      
+      <ThemedView style={styles.sectionContainer}>
+        <ThemedText type="subtitle">🌟 App Summary</ThemedText>
         <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
+          A cross-platform (web, iOS, Android) app where users submit questions and attach monetary rewards. 
+          Other users compete to answer these questions correctly. If the question receives a correct answer, 
+          the original poster awards the bounty. If not, the bounty is split among all answerers.
         </ThemedText>
       </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
+
+      <ThemedView style={styles.sectionContainer}>
+        <ThemedText type="subtitle">🧩 Core Features</ThemedText>
+        
+        <ThemedText type="defaultSemiBold">✅ Question Submission</ThemedText>
         <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
+          • Text + media input: text, image, video, livestream{'\n'}
+          • Optional reward in USD (asker decides amount){'\n'}
+          • Optional time limit (e.g., 1hr, 6hr, 24hr){'\n'}
+          • AI review:{'\n'}
+          &nbsp;&nbsp;• Categorizes question into tags/topics{'\n'}
+          &nbsp;&nbsp;• Checks for appropriate content
         </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
+
+        <ThemedText type="defaultSemiBold">✅ Notifications</ThemedText>
         <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
+          • Users can opt-in to tags{'\n'}
+          • Notified when a new question matches interest
+        </ThemedText>
+
+        <ThemedText type="defaultSemiBold">✅ Answering a Question</ThemedText>
+        <ThemedText>
+          • Browse or get notified of questions{'\n'}
+          • View supporting materials{'\n'}
+          • Submit a detailed answer (must pass AI quality check)
+        </ThemedText>
+
+        <ThemedText type="defaultSemiBold">✅ Bounty Distribution</ThemedText>
+        <ThemedText>
+          • Asker chooses winner manually{'\n'}
+          • If expired with no chosen answer, bounty split among all responders{'\n'}
+          • Option for community to vote on best answer (TBD)
+        </ThemedText>
+
+        <ThemedText type="defaultSemiBold">✅ Question Feed</ThemedText>
+        <ThemedText>
+          • Global list of live/open questions{'\n'}
+          • Sorted by:{'\n'}
+          &nbsp;&nbsp;• Reward amount{'\n'}
+          &nbsp;&nbsp;• Popularity (upvotes){'\n'}
+          &nbsp;&nbsp;• Time left{'\n'}
+          • Users can upvote/downvote questions
+        </ThemedText>
+
+        <ThemedText type="defaultSemiBold">✅ Reputation System</ThemedText>
+        <ThemedText>
+          • Points based on upvotes (like Reddit karma){'\n'}
+          • Bounties and points increase trustworthiness{'\n'}
+          • Optional tiers (e.g., Bronze/Silver/Gold)
+        </ThemedText>
+
+        <ThemedText type="defaultSemiBold">✅ Case-Like Handling</ThemedText>
+        <ThemedText>
+          • Questions are treated like "cases"{'\n'}
+          • Can attach:{'\n'}
+          &nbsp;&nbsp;• Images, documents, videos, livestreams{'\n'}
+          &nbsp;&nbsp;• Updates (question edits, comments)
+        </ThemedText>
+
+        <ThemedText type="defaultSemiBold">✅ Live Interaction</ThemedText>
+        <ThemedText>
+          • Live video room (TBD tech){'\n'}
+          • Viewers can comment, ask clarifying questions{'\n'}
+          • Only allowed within bounty time window
         </ThemedText>
       </ThemedView>
     </ParallaxScrollView>
@@ -60,10 +102,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
+    marginBottom: 16,
   },
-  stepContainer: {
+  sectionContainer: {
     gap: 8,
-    marginBottom: 8,
+    marginBottom: 24,
   },
   reactLogo: {
     height: 178,
