@@ -5,7 +5,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
-export default function HomeScreen() {
+export default function AskScreen() {
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -16,81 +16,75 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">ASQ!</ThemedText>
+        <ThemedText type="title">Ask a Question</ThemedText>
       </ThemedView>
       
       <ThemedView style={styles.sectionContainer}>
-        <ThemedText type="subtitle">🌟 App Summary</ThemedText>
-        <ThemedText>
-          A cross-platform (web, iOS, Android) app where users submit questions and attach monetary rewards. 
-          Other users compete to answer these questions correctly. If the question receives a correct answer, 
-          the original poster awards the bounty. If not, the bounty is split among all answerers.
+        <ThemedText type="subtitle">✍️ Question Details</ThemedText>
+        <ThemedText style={styles.placeholderText}>
+          [Question title input field]
+        </ThemedText>
+        <ThemedText style={styles.placeholderText}>
+          [Detailed description text area]
         </ThemedText>
       </ThemedView>
 
       <ThemedView style={styles.sectionContainer}>
-        <ThemedText type="subtitle">🧩 Core Features</ThemedText>
-        
-        <ThemedText type="defaultSemiBold">✅ Question Submission</ThemedText>
+        <ThemedText type="subtitle">📎 Attachments</ThemedText>
         <ThemedText>
-          • Text + media input: text, image, video, livestream{'\n'}
-          • Optional reward in USD (asker decides amount){'\n'}
-          • Optional time limit (e.g., 1hr, 6hr, 24hr){'\n'}
-          • AI review:{'\n'}
-          &nbsp;&nbsp;• Categorizes question into tags/topics{'\n'}
-          &nbsp;&nbsp;• Checks for appropriate content
+          • Add images, documents, or videos{'\n'}
+          • Record video directly in app{'\n'}
+          • Start a livestream (optional)
         </ThemedText>
-
-        <ThemedText type="defaultSemiBold">✅ Notifications</ThemedText>
-        <ThemedText>
-          • Users can opt-in to tags{'\n'}
-          • Notified when a new question matches interest
+        <ThemedText style={styles.placeholderText}>
+          [Attachment upload area]
         </ThemedText>
+      </ThemedView>
 
-        <ThemedText type="defaultSemiBold">✅ Answering a Question</ThemedText>
+      <ThemedView style={styles.sectionContainer}>
+        <ThemedText type="subtitle">💰 Set Bounty</ThemedText>
         <ThemedText>
-          • Browse or get notified of questions{'\n'}
-          • View supporting materials{'\n'}
-          • Submit a detailed answer (must pass AI quality check)
+          • Minimum bounty: $5{'\n'}
+          • Higher bounties get more attention{'\n'}
+          • You only pay if you accept an answer
         </ThemedText>
-
-        <ThemedText type="defaultSemiBold">✅ Bounty Distribution</ThemedText>
-        <ThemedText>
-          • Asker chooses winner manually{'\n'}
-          • If expired with no chosen answer, bounty split among all responders{'\n'}
-          • Option for community to vote on best answer (TBD)
+        <ThemedText style={styles.placeholderText}>
+          [$ Amount input field]
         </ThemedText>
+      </ThemedView>
 
-        <ThemedText type="defaultSemiBold">✅ Question Feed</ThemedText>
+      <ThemedView style={styles.sectionContainer}>
+        <ThemedText type="subtitle">⏱️ Time Limit</ThemedText>
         <ThemedText>
-          • Global list of live/open questions{'\n'}
-          • Sorted by:{'\n'}
-          &nbsp;&nbsp;• Reward amount{'\n'}
-          &nbsp;&nbsp;• Popularity (upvotes){'\n'}
-          &nbsp;&nbsp;• Time left{'\n'}
-          • Users can upvote/downvote questions
+          • Choose how long answers will be accepted:{'\n'}
+          &nbsp;&nbsp;• 1 hour (urgent questions){'\n'}
+          &nbsp;&nbsp;• 6 hours (standard){'\n'}
+          &nbsp;&nbsp;• 24 hours (complex questions){'\n'}
+          &nbsp;&nbsp;• Custom time (up to 7 days)
         </ThemedText>
-
-        <ThemedText type="defaultSemiBold">✅ Reputation System</ThemedText>
-        <ThemedText>
-          • Points based on upvotes (like Reddit karma){'\n'}
-          • Bounties and points increase trustworthiness{'\n'}
-          • Optional tiers (e.g., Bronze/Silver/Gold)
+        <ThemedText style={styles.placeholderText}>
+          [Time limit selector]
         </ThemedText>
+      </ThemedView>
 
-        <ThemedText type="defaultSemiBold">✅ Case-Like Handling</ThemedText>
+      <ThemedView style={styles.sectionContainer}>
+        <ThemedText type="subtitle">🏷️ Categories</ThemedText>
         <ThemedText>
-          • Questions are treated like "cases"{'\n'}
-          • Can attach:{'\n'}
-          &nbsp;&nbsp;• Images, documents, videos, livestreams{'\n'}
-          &nbsp;&nbsp;• Updates (question edits, comments)
+          • AI will suggest categories{'\n'}
+          • Helps reach the right experts{'\n'}
+          • You can manually adjust
         </ThemedText>
+        <ThemedText style={styles.placeholderText}>
+          [Category selector]
+        </ThemedText>
+      </ThemedView>
 
-        <ThemedText type="defaultSemiBold">✅ Live Interaction</ThemedText>
-        <ThemedText>
-          • Live video room (TBD tech){'\n'}
-          • Viewers can comment, ask clarifying questions{'\n'}
-          • Only allowed within bounty time window
+      <ThemedView style={styles.sectionContainer}>
+        <ThemedText style={styles.placeholderButton}>
+          [SUBMIT QUESTION BUTTON]
+        </ThemedText>
+        <ThemedText style={styles.footerText}>
+          By submitting, you agree to our Terms and confirm this question follows Community Guidelines
         </ThemedText>
       </ThemedView>
     </ParallaxScrollView>
@@ -107,6 +101,30 @@ const styles = StyleSheet.create({
   sectionContainer: {
     gap: 8,
     marginBottom: 24,
+  },
+  placeholderText: {
+    padding: 12,
+    borderWidth: 1,
+    borderColor: '#A1CEDC',
+    borderRadius: 8,
+    backgroundColor: 'rgba(161, 206, 220, 0.1)',
+    fontStyle: 'italic',
+    color: '#1D3D47',
+  },
+  placeholderButton: {
+    padding: 16,
+    backgroundColor: '#A1CEDC',
+    color: '#1D3D47',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    borderRadius: 8,
+    overflow: 'hidden',
+  },
+  footerText: {
+    fontSize: 12,
+    textAlign: 'center',
+    marginTop: 8,
+    color: '#666',
   },
   reactLogo: {
     height: 178,
