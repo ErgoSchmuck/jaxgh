@@ -81,7 +81,7 @@ export default function AskScreen() {
 
       <ThemedView style={styles.sectionContainer}>
         <ThemedText style={styles.placeholderButton}>
-          [SUBMIT QUESTION BUTTON]
+          [SUBMIT QUESTION]
         </ThemedText>
         <ThemedText style={styles.footerText}>
           By submitting, you agree to our Terms and confirm this question follows Community Guidelines

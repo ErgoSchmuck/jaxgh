@@ -29,7 +29,7 @@ export default function ProfileScreen() {
           [Name: John Doe (Expert Mechanic)]
         </ThemedText>
         <ThemedText style={styles.placeholderText}>
-          [Reputation: Gold Tier (1,240 points)]
+          [Reputation: Gold Tier (1,240 Grey Matter)]
         </ThemedText>
         <ThemedText style={styles.placeholderText}>
           [Success rate: 87% correct answers)]
