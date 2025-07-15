@@ -44,12 +44,12 @@ export default function AskScreen() {
       <ThemedView style={styles.sectionContainer}>
         <ThemedText type="subtitle">💰 Set Bounty</ThemedText>
         <ThemedText>
-          • Minimum bounty: $5{'\n'}
+          • Minimum bounty: £0.01{'\n'}
           • Higher bounties get more attention{'\n'}
           • You only pay if you accept an answer
         </ThemedText>
         <ThemedText style={styles.placeholderText}>
-          [$ Amount input field]
+          [£ Amount input field]
         </ThemedText>
       </ThemedView>
 

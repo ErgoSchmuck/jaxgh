@@ -3,7 +3,8 @@ import React from 'react';
 import { Platform } from 'react-native';
 
 import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
+//import { IconSymbol } from '@/components/ui/IconSymbol';
+import { Ionicons } from '@expo/vector-icons';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
@@ -30,23 +31,23 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Asq',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color }) => <Ionicons size={28} name="chatbubble-ellipses" color={color} />,
         }}
       />
       <Tabs.Screen
         name="answer"
         options={{
           title: 'Answer',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ color }) => <Ionicons size={28} name="chatbubbles-sharp" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="about"
+        name="profile & settings"
         options={{
-          title: 'About',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Profile & Settings',
+          tabBarIcon: ({ color }) => <Ionicons size={28} name="construct" color={color} />,
         }}
-        />      
+      />
     </Tabs>
   );
 }

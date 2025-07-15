@@ -50,7 +50,7 @@ const moveDirectories = async (userInput) => {
     if (userInput === "y") {
       // Create the app-example directory
       await fs.promises.mkdir(exampleDirPath, { recursive: true });
-      console.log(`📁 /${exampleDir} directory created.`);
+      console.log(`📁 /£{exampleDir} directory created.`);
     }
 
     // Move old directories to new app-example directory or delete them
@@ -60,13 +60,13 @@ const moveDirectories = async (userInput) => {
         if (userInput === "y") {
           const newDirPath = path.join(root, exampleDir, dir);
           await fs.promises.rename(oldDirPath, newDirPath);
-          console.log(`➡️ /${dir} moved to /${exampleDir}/${dir}.`);
+          console.log(`➡️ /£{dir} moved to /£{exampleDir}/£{dir}.`);
         } else {
           await fs.promises.rm(oldDirPath, { recursive: true, force: true });
-          console.log(`❌ /${dir} deleted.`);
+          console.log(`❌ /£{dir} deleted.`);
         }
       } else {
-        console.log(`➡️ /${dir} does not exist, skipping.`);
+        console.log(`➡️ /£{dir} does not exist, skipping.`);
       }
     }
 
@@ -87,14 +87,14 @@ const moveDirectories = async (userInput) => {
 
     console.log("\n✅ Project reset complete. Next steps:");
     console.log(
-      `1. Run \`npx expo start\` to start a development server.\n2. Edit app/index.tsx to edit the main screen.${
+      `1. Run \`npx expo start\` to start a development server.\n2. Edit app/index.tsx to edit the main screen.£{
         userInput === "y"
-          ? `\n3. Delete the /${exampleDir} directory when you're done referencing it.`
+          ? `\n3. Delete the /£{exampleDir} directory when you're done referencing it.`
           : ""
       }`
     );
   } catch (error) {
-    console.error(`❌ Error during script execution: ${error.message}`);
+    console.error(`❌ Error during script execution: £{error.message}`);
   }
 };
 
