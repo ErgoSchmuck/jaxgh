@@ -28,7 +28,7 @@ export default function AnswerScreen() {
 
       {/* Example Question 1 */}
       <ThemedView style={styles.questionContainer}>
-        <ThemedText type="defaultSemiBold">💰 Bounty: £25</ThemedText>
+        <ThemedText type="defaultSemiBold">💰 Bounty: £2</ThemedText>
         <ThemedText type="subtitle">How do I fix this React Native styling issue?</ThemedText>
         <ThemedText>
           • Time remaining: 3h 42m{'\n'}
@@ -43,8 +43,8 @@ export default function AnswerScreen() {
 
       {/* Example Question 2 */}
       <ThemedView style={styles.questionContainer}>
-        <ThemedText type="defaultSemiBold">💰 Bounty: £50</ThemedText>
-        <ThemedText type="subtitle">What's the best approach for mobile authentication in 2024?</ThemedText>
+        <ThemedText type="defaultSemiBold">💰 Bounty: £0.50</ThemedText>
+        <ThemedText type="subtitle">What's the best approach for mobile authentication in 2025?</ThemedText>
         <ThemedText>
           • Time remaining: 12h 15m{'\n'}
           • Category: Security{'\n'}
@@ -58,7 +58,7 @@ export default function AnswerScreen() {
 
       {/* Example Question 3 */}
       <ThemedView style={styles.questionContainer}>
-        <ThemedText type="defaultSemiBold">💰 Bounty: £15</ThemedText>
+        <ThemedText type="defaultSemiBold">💰 Bounty: £0.15</ThemedText>
         <ThemedText type="subtitle">Help identify this plant from my garden</ThemedText>
         <ThemedText>
           • Time remaining: 1h 05m{'\n'}
