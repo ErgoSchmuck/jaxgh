@@ -109,7 +109,7 @@ export default function ProfileScreen() {
         </ThemedText>
       </ThemedView>
 
-      {/* About Section (your original content) */}
+      {/* About Section*/}
       <ThemedView style={styles.sectionContainer}>
         <ThemedText type="subtitle">🌟 App Summary</ThemedText>
         <ThemedText>

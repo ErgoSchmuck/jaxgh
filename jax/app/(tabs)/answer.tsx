@@ -3,6 +3,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { Ionicons } from '@expo/vector-icons';
+import { Link } from 'expo-router';
 
 export default function AnswerScreen() {
   return (
@@ -26,28 +27,31 @@ export default function AnswerScreen() {
       </ThemedView>
 
       {/* Example Question 1 - Cash Only */}
-      <ThemedView style={styles.questionContainer}>
-        <View style={styles.questionContent}>
-          <View style={styles.bountyRow}>
-            <ThemedText style={styles.cashBounty}>£2.50</ThemedText>
-            <ThemedText style={styles.greyMatterBounty}>🧠 12 GM</ThemedText>
-          </View>          <ThemedText type="subtitle">How do I fix this React Native styling issue?</ThemedText>
-          <ThemedText>
-            • Time remaining: 3h 42m{'\n'}
-            • Category: Programming{'\n'}
-            • 3 answers submitted{'\n'}
-            • Attachments: 1 code screenshot
-          </ThemedText>
-          <ThemedText style={styles.actionText}>
-            Tap to view details and answer
-          </ThemedText>
-        </View>
-        <View style={styles.votingContainer}>
-          <Ionicons name="arrow-up-circle" size={28} color="#757575" />
-          <ThemedText style={styles.score}>12</ThemedText>
-          <Ionicons name="arrow-down-circle" size={28} color="#757575" />
-        </View>
-      </ThemedView>
+      <Link href="/question/1" asChild>
+        <ThemedView style={styles.questionContainer}>
+          <View style={styles.questionContent}>
+            <View style={styles.bountyRow}>
+              <ThemedText style={styles.cashBounty}>£2.50</ThemedText>
+              <ThemedText style={styles.greyMatterBounty}>🧠 12 GM</ThemedText>
+            </View>
+            <ThemedText type="subtitle">How do I fix this React Native styling issue?</ThemedText>
+            <ThemedText>
+              • Time remaining: 3h 42m{'\n'}
+              • Category: Programming{'\n'}
+              • 3 answers submitted{'\n'}
+              • Attachments: 1 code screenshot
+            </ThemedText>
+            <ThemedText style={styles.actionText}>
+              Tap to view details and answer
+            </ThemedText>
+          </View>
+          <View style={styles.votingContainer}>
+            <Ionicons name="arrow-up-circle" size={28} color="#757575" />
+            <ThemedText style={styles.score}>12</ThemedText>
+            <Ionicons name="arrow-down-circle" size={28} color="#757575" />
+          </View>
+        </ThemedView>
+      </Link>
 
       {/* Example Question 2 - Grey Matter Only */}
       <ThemedView style={styles.questionContainer}>
@@ -118,8 +122,6 @@ export default function AnswerScreen() {
           • 5% platform fee deducted from each bounty
         </ThemedText>
       </ThemedView>
-
-      {/* Rest of your content... */}
     </ParallaxScrollView>
   );
 }
