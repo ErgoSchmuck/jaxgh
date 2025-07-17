@@ -41,8 +41,14 @@ const styles = StyleSheet.create({
 
 Can someone explain why this might be rendering differently across platforms and suggest a solution?`,
     attachments: [
-      { type: 'image', url: 'https://placehold.co/600x400?text=Code+Screenshot' },
-      { type: 'image', url: 'https://placehold.co/600x400?text=UI+Example' }
+      {
+        type: 'image',
+        source: require('@/assets/images/code-image.png') // Update path
+      },
+      {
+        type: 'image',
+        source: require('@/assets/images/UI screen.png') // Update path
+      }
     ],
     comments: [
       {
@@ -94,18 +100,19 @@ Can someone explain why this might be rendering differently across platforms and
           <ThemedText>💬 {question.answers} answers</ThemedText>
           <ThemedText>👍 {question.score} votes</ThemedText>
         </View>
-        
+
         <ThemedView style={styles.questionBody}>
           <ThemedText>{question.content}</ThemedText>
         </ThemedView>
-        
+
         {/* Attachments */}
         <View style={styles.attachmentsContainer}>
           {question.attachments.map((attachment, index) => (
             <Image
               key={index}
-              source={{ uri: attachment.url }}
+              source={attachment.source} // Changed from uri to source
               style={styles.attachmentImage}
+              resizeMode="contain"
             />
           ))}
         </View>
@@ -129,7 +136,7 @@ Can someone explain why this might be rendering differently across platforms and
       {/* Comments Section */}
       <ThemedView style={styles.commentsContainer}>
         <ThemedText type="subtitle">Top Comments ({question.comments.length})</ThemedText>
-        
+
         {question.comments.sort((a, b) => b.score - a.score).map(comment => (
           <ThemedView key={comment.id} style={styles.commentCard}>
             <View style={styles.commentHeader}>

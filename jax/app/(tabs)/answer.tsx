@@ -3,9 +3,11 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { Ionicons } from '@expo/vector-icons';
-import { Link } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
+import { Pressable } from 'react-native';
 
 export default function AnswerScreen() {
+  const router = useRouter();
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -26,9 +28,14 @@ export default function AnswerScreen() {
         </ThemedText>
       </ThemedView>
 
-      {/* Example Question 1 - Cash Only */}
-      <Link href="/question/1" asChild>
-        <ThemedView style={styles.questionContainer}>
+      <ThemedView style={styles.questionContainer}>
+        <Pressable
+          onPress={() => router.push('/question/1')}
+          style={({ pressed }) => [
+            styles.pressableContent,
+            { opacity: pressed ? 0.6 : 1 }
+          ]}
+        >
           <View style={styles.questionContent}>
             <View style={styles.bountyRow}>
               <ThemedText style={styles.cashBounty}>£2.50</ThemedText>
@@ -45,13 +52,13 @@ export default function AnswerScreen() {
               Tap to view details and answer
             </ThemedText>
           </View>
-          <View style={styles.votingContainer}>
-            <Ionicons name="arrow-up-circle" size={28} color="#757575" />
-            <ThemedText style={styles.score}>12</ThemedText>
-            <Ionicons name="arrow-down-circle" size={28} color="#757575" />
-          </View>
-        </ThemedView>
-      </Link>
+        </Pressable>
+        <View style={styles.votingContainer}>
+          <Ionicons name="arrow-up-circle" size={28} color="#757575" />
+          <ThemedText style={styles.score}>12</ThemedText>
+          <Ionicons name="arrow-down-circle" size={28} color="#757575" />
+        </View>
+      </ThemedView>
 
       {/* Example Question 2 - Grey Matter Only */}
       <ThemedView style={styles.questionContainer}>
@@ -181,5 +188,8 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     position: 'absolute',
+  },
+  pressableContent: {
+    flex: 1,
   },
 });
