@@ -54,7 +54,7 @@ export default function AnswerScreen() {
         <View style={styles.questionContent}>
           <View style={styles.bountyRow}>
             <ThemedText style={styles.cashBounty}>£0.50</ThemedText>
-            <ThemedText style={styles.greyMatterBounty}>🧠 50 GM</ThemedText>
+            <ThemedText style={styles.greyMatterBounty}>🧠 74 GM</ThemedText>
           </View>          <ThemedText type="subtitle">What's the best approach for mobile authentication in 2025?</ThemedText>
           <ThemedText>
             • Time remaining: 12h 15m{'\n'}
@@ -78,7 +78,7 @@ export default function AnswerScreen() {
         <View style={styles.questionContent}>
           <View style={styles.bountyRow}>
             <ThemedText style={styles.cashBounty}>£0.00</ThemedText>
-            <ThemedText style={styles.greyMatterBounty}>🧠 75 GM</ThemedText>
+            <ThemedText style={styles.greyMatterBounty}>🧠 80 GM</ThemedText>
           </View>
           <ThemedText type="subtitle">Help identify this plant from my garden</ThemedText>
           <ThemedText>
