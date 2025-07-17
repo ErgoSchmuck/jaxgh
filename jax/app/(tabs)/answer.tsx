@@ -1,7 +1,7 @@
 import { Image, StyleSheet, View } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText} from '@/components/ThemedText';
-import { ThemedView} from '@/components/ThemedView';
+import { ThemedText } from '@/components/ThemedText';
+import { ThemedView } from '@/components/ThemedView';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function AnswerScreen() {
@@ -17,7 +17,7 @@ export default function AnswerScreen() {
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Answer Questions</ThemedText>
       </ThemedView>
-      
+
       <ThemedView style={styles.sectionContainer}>
         <ThemedText type="subtitle">🌟 Current Questions</ThemedText>
         <ThemedText>
@@ -28,8 +28,10 @@ export default function AnswerScreen() {
       {/* Example Question 1 - Cash Only */}
       <ThemedView style={styles.questionContainer}>
         <View style={styles.questionContent}>
-          <ThemedText style={styles.cashBounty}>£2.00</ThemedText>
-          <ThemedText type="subtitle">How do I fix this React Native styling issue?</ThemedText>
+          <View style={styles.bountyRow}>
+            <ThemedText style={styles.cashBounty}>£2.50</ThemedText>
+            <ThemedText style={styles.greyMatterBounty}>🧠 12 GM</ThemedText>
+          </View>          <ThemedText type="subtitle">How do I fix this React Native styling issue?</ThemedText>
           <ThemedText>
             • Time remaining: 3h 42m{'\n'}
             • Category: Programming{'\n'}
@@ -50,8 +52,10 @@ export default function AnswerScreen() {
       {/* Example Question 2 - Grey Matter Only */}
       <ThemedView style={styles.questionContainer}>
         <View style={styles.questionContent}>
-          <ThemedText style={styles.greyMatterBounty}>🧠 150 GM</ThemedText>
-          <ThemedText type="subtitle">What's the best approach for mobile authentication in 2025?</ThemedText>
+          <View style={styles.bountyRow}>
+            <ThemedText style={styles.cashBounty}>£0.50</ThemedText>
+            <ThemedText style={styles.greyMatterBounty}>🧠 50 GM</ThemedText>
+          </View>          <ThemedText type="subtitle">What's the best approach for mobile authentication in 2025?</ThemedText>
           <ThemedText>
             • Time remaining: 12h 15m{'\n'}
             • Category: Security{'\n'}
@@ -73,8 +77,8 @@ export default function AnswerScreen() {
       <ThemedView style={styles.questionContainer}>
         <View style={styles.questionContent}>
           <View style={styles.bountyRow}>
-            <ThemedText style={styles.cashBounty}>£0.50</ThemedText>
-            <ThemedText style={styles.greyMatterBounty}>🧠 50 GM</ThemedText>
+            <ThemedText style={styles.cashBounty}>£0.00</ThemedText>
+            <ThemedText style={styles.greyMatterBounty}>🧠 75 GM</ThemedText>
           </View>
           <ThemedText type="subtitle">Help identify this plant from my garden</ThemedText>
           <ThemedText>
@@ -94,7 +98,7 @@ export default function AnswerScreen() {
         </View>
       </ThemedView>
 
-            <ThemedView style={styles.sectionContainer}>
+      <ThemedView style={styles.sectionContainer}>
         <ThemedText type="subtitle">✅ Answering Guidelines</ThemedText>
         <ThemedText>
           • Provide detailed, well-researched answers{'\n'}
