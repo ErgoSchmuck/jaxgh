@@ -1,9 +1,8 @@
-import { Image } from 'expo-image';
-import { StyleSheet } from 'react-native';
-
+import { Image, StyleSheet, View } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { ThemedText} from '@/components/ThemedText';
+import { ThemedView} from '@/components/ThemedView';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function AnswerScreen() {
   return (
@@ -26,52 +25,76 @@ export default function AnswerScreen() {
         </ThemedText>
       </ThemedView>
 
-      {/* Example Question 1 */}
+      {/* Example Question 1 - Cash Only */}
       <ThemedView style={styles.questionContainer}>
-        <ThemedText type="defaultSemiBold">💰 Bounty: £2</ThemedText>
-        <ThemedText type="subtitle">How do I fix this React Native styling issue?</ThemedText>
-        <ThemedText>
-          • Time remaining: 3h 42m{'\n'}
-          • Category: Programming{'\n'}
-          • 3 answers submitted{'\n'}
-          • Attachments: 1 code screenshot
-        </ThemedText>
-        <ThemedText style={styles.actionText}>
-          Tap to view details and answer
-        </ThemedText>
+        <View style={styles.questionContent}>
+          <ThemedText style={styles.cashBounty}>£2.00</ThemedText>
+          <ThemedText type="subtitle">How do I fix this React Native styling issue?</ThemedText>
+          <ThemedText>
+            • Time remaining: 3h 42m{'\n'}
+            • Category: Programming{'\n'}
+            • 3 answers submitted{'\n'}
+            • Attachments: 1 code screenshot
+          </ThemedText>
+          <ThemedText style={styles.actionText}>
+            Tap to view details and answer
+          </ThemedText>
+        </View>
+        <View style={styles.votingContainer}>
+          <Ionicons name="arrow-up-circle" size={28} color="#757575" />
+          <ThemedText style={styles.score}>12</ThemedText>
+          <Ionicons name="arrow-down-circle" size={28} color="#757575" />
+        </View>
       </ThemedView>
 
-      {/* Example Question 2 */}
+      {/* Example Question 2 - Grey Matter Only */}
       <ThemedView style={styles.questionContainer}>
-        <ThemedText type="defaultSemiBold">💰 Bounty: £0.50</ThemedText>
-        <ThemedText type="subtitle">What's the best approach for mobile authentication in 2025?</ThemedText>
-        <ThemedText>
-          • Time remaining: 12h 15m{'\n'}
-          • Category: Security{'\n'}
-          • 7 answers submitted{'\n'}
-          • Attachments: None
-        </ThemedText>
-        <ThemedText style={styles.actionText}>
-          Tap to view details and answer
-        </ThemedText>
+        <View style={styles.questionContent}>
+          <ThemedText style={styles.greyMatterBounty}>🧠 150 GM</ThemedText>
+          <ThemedText type="subtitle">What's the best approach for mobile authentication in 2025?</ThemedText>
+          <ThemedText>
+            • Time remaining: 12h 15m{'\n'}
+            • Category: Security{'\n'}
+            • 7 answers submitted{'\n'}
+            • Attachments: None
+          </ThemedText>
+          <ThemedText style={styles.actionText}>
+            Tap to view details and answer
+          </ThemedText>
+        </View>
+        <View style={styles.votingContainer}>
+          <Ionicons name="arrow-up-circle" size={28} color="#757575" />
+          <ThemedText style={styles.score}>24</ThemedText>
+          <Ionicons name="arrow-down-circle" size={28} color="#757575" />
+        </View>
       </ThemedView>
 
-      {/* Example Question 3 */}
+      {/* Example Question 3 - Both Currencies */}
       <ThemedView style={styles.questionContainer}>
-        <ThemedText type="defaultSemiBold">💰 Bounty: £0.15</ThemedText>
-        <ThemedText type="subtitle">Help identify this plant from my garden</ThemedText>
-        <ThemedText>
-          • Time remaining: 1h 05m{'\n'}
-          • Category: Gardening{'\n'}
-          • 0 answers submitted{'\n'}
-          • Attachments: 3 photos
-        </ThemedText>
-        <ThemedText style={styles.actionText}>
-          Tap to view details and answer
-        </ThemedText>
+        <View style={styles.questionContent}>
+          <View style={styles.bountyRow}>
+            <ThemedText style={styles.cashBounty}>£0.50</ThemedText>
+            <ThemedText style={styles.greyMatterBounty}>🧠 50 GM</ThemedText>
+          </View>
+          <ThemedText type="subtitle">Help identify this plant from my garden</ThemedText>
+          <ThemedText>
+            • Time remaining: 1h 05m{'\n'}
+            • Category: Gardening{'\n'}
+            • 0 answers submitted{'\n'}
+            • Attachments: 3 photos
+          </ThemedText>
+          <ThemedText style={styles.actionText}>
+            Tap to view details and answer
+          </ThemedText>
+        </View>
+        <View style={styles.votingContainer}>
+          <Ionicons name="arrow-up-circle" size={28} color="#757575" />
+          <ThemedText style={styles.score}>5</ThemedText>
+          <Ionicons name="arrow-down-circle" size={28} color="#757575" />
+        </View>
       </ThemedView>
 
-      <ThemedView style={styles.sectionContainer}>
+            <ThemedView style={styles.sectionContainer}>
         <ThemedText type="subtitle">✅ Answering Guidelines</ThemedText>
         <ThemedText>
           • Provide detailed, well-researched answers{'\n'}
@@ -91,6 +114,8 @@ export default function AnswerScreen() {
           • 5% platform fee deducted from each bounty
         </ThemedText>
       </ThemedView>
+
+      {/* Rest of your content... */}
     </ParallaxScrollView>
   );
 }
@@ -107,11 +132,37 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   questionContainer: {
-    gap: 8,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginBottom: 20,
     padding: 16,
     borderRadius: 8,
     backgroundColor: 'rgba(161, 206, 220, 0.2)',
+  },
+  questionContent: {
+    flex: 1,
+  },
+  bountyRow: {
+    flexDirection: 'row',
+    gap: 10,
+    marginBottom: 5,
+  },
+  cashBounty: {
+    color: '#4CAF50',
+    fontWeight: 'bold',
+  },
+  greyMatterBounty: {
+    color: '#9C27B0',
+    fontWeight: 'bold',
+  },
+  votingContainer: {
+    width: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  score: {
+    fontWeight: 'bold',
+    marginVertical: 4,
   },
   actionText: {
     marginTop: 8,
