@@ -27,9 +27,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Asq',
+          title: 'Home',
           tabBarIcon: ({ color }) => (
-            <Ionicons size={28} name="chatbubble-ellipses" color={color} />
+            <Ionicons size={28} name="home" color={color} />
           ),
         }}
       />
@@ -43,11 +43,20 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="answer global queue"
+        options={{
+          title: 'Queue',
+          tabBarIcon: ({ color }) => (
+            <Ionicons size={28} name="list" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="profile & settings"
         options={{
-          title: 'Profile & Settings',
+          title: 'Profile',
           tabBarIcon: ({ color }) => (
-            <Ionicons size={28} name="construct" color={color} />
+            <Ionicons size={28} name="person" color={color} />
           ),
         }}
       />
