@@ -139,7 +139,7 @@ export default function AnswerScreen() {
       {/* Priority Question Section */}
       <ThemedView style={styles.priorityContainer}>
         <ThemedView style={styles.priorityBanner}>
-          <ThemedText type="title" style={styles.priorityText}>User is Asqing the World...</ThemedText>
+          <ThemedText type="title" style={styles.priorityText}>@HealthConcerned is Asqing the World...</ThemedText>
         </ThemedView>
 
         <ThemedView style={styles.activeQuestionContainer}>
