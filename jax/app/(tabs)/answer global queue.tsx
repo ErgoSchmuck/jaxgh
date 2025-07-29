@@ -7,31 +7,32 @@ import { useRouter } from 'expo-router';
 
 export default function AnswerScreen() {
   const router = useRouter();
-  
-  // Current active question
+
+  // Current active question (now generic rash question)
   const activeQuestion = {
     id: 1,
-    title: "How do I fix this React Native styling issue?",
-    bountyCash: 0.50,
-    bountyGreyMatter: 45,
-    timeLeft: "32m",
-    category: "Security",
-    contentPreview: "I'm having trouble with styling in my React Native app. The buttons aren't aligning properly on iOS devices, and the shadows look different on Android. Here's my current code:",
-    priorityBoost: "HIGH PRIORITY",
-    timeInSpotlight: "32m remaining"
+    username: "@HealthConcerned",
+    title: "What's causing this specific rash pattern on my forearm? (Photo included)",
+    bountyCash: 0.85,
+    bountyGreyMatter: 75,
+    timeLeft: "28m",
+    category: "Health",
+    contentPreview: "Appeared 3 days ago, itches but doesn't hurt. Not responding to hydrocortisone.",
+    timeInSpotlight: "28m remaining"
   };
 
-  // Queued questions - all 10 human-value scenarios
+  // Queued questions (technical question moved here)
   const queuedQuestions = [
     {
       id: 2,
-      title: "What's causing this specific rash pattern on my forearm? (Photo included)",
+      username: "@DevUser123",
+      title: "How do I implement secure biometric authentication in React Native?",
       position: 1,
-      bountyCash: 0.85,
-      bountyGreyMatter: 75,
-      timeUntilActive: "~28m",
-      upvotes: 18,
-      description: "Appeared 3 days ago, itches but doesn't hurt. Not responding to hydrocortisone."
+      bountyCash: 5.00,
+      bountyGreyMatter: 45,
+      timeUntilActive: "~32m",
+      upvotes: 12,
+      description: "Need help implementing Face ID/Touch ID that works across iOS and Android..."
     },
     {
       id: 3,
@@ -134,19 +135,16 @@ export default function AnswerScreen() {
           style={styles.reactLogo}
         />
       }>
-      
-      {/* Priority Question with elegant styling */}
+
+      {/* Priority Question Section */}
       <ThemedView style={styles.priorityContainer}>
         <ThemedView style={styles.priorityBanner}>
-          <ThemedText type="title" style={styles.priorityText}>PRIORITY QUESTION</ThemedText>
+          <ThemedText type="title" style={styles.priorityText}>User is Asqing the World...</ThemedText>
         </ThemedView>
 
         <ThemedView style={styles.activeQuestionContainer}>
           <View style={styles.questionHeader}>
-            <ThemedText type="title">{activeQuestion.title}</ThemedText>
-            <View style={styles.priorityBadge}>
-              <ThemedText style={styles.badgeText}>{activeQuestion.priorityBoost}</ThemedText>
-            </View>
+            <ThemedText type="title" style={styles.questionTitle}>{activeQuestion.title}</ThemedText>
           </View>
 
           <View style={styles.bountyRow}>
@@ -171,8 +169,7 @@ export default function AnswerScreen() {
           </Pressable>
         </ThemedView>
       </ThemedView>
-
-      {/* Queued Questions Section - All 10 questions*/}
+      {/* Queued Questions Section */}
       <ThemedView style={styles.sectionContainer}>
         <ThemedText type="subtitle">QUEUED QUESTIONS</ThemedText>
         <ThemedText style={styles.queueSubtitle}>
@@ -251,6 +248,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     letterSpacing: 1
   },
+  questionTitle: {
+    flex: 1,
+    marginRight: 8,
+  },
   activeQuestionContainer: {
     padding: 20,
     backgroundColor: 'transparent'
@@ -261,22 +262,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 12
   },
-  priorityBadge: {
-    backgroundColor: '#1D3D47',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 4
-  },
-  badgeText: {
-    color: 'white',
-    fontSize: 12,
-    fontWeight: 'bold'
-  },
   bountyRow: {
     flexDirection: 'row',
     gap: 10,
     alignItems: 'center',
-    marginBottom: 8
+    marginBottom: 8,
+    flexWrap: 'wrap'
   },
   cashBounty: {
     color: '#4CAF50',

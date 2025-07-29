@@ -6,71 +6,63 @@ import { Ionicons } from '@expo/vector-icons';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 
 export default function QuestionDetailScreen() {
-  // Dummy question data
+  // Updated rash question data
   const question = {
     id: 1,
-    title: "How do I fix this React Native styling issue?",
-    bountyCash: 2.50,
-    bountyGreyMatter: 12,
-    timeLeft: "3h 42m",
-    category: "Programming",
+    username: "@HealthConcerned",
+    title: "What's causing this specific rash pattern on my forearm? (Photo included)",
+    bountyCash: 0.85,
+    bountyGreyMatter: 75,
+    timeLeft: "0h 28m",
+    category: "Dermatology",
     answers: 3,
-    score: 12,
-    content: `I'm having trouble with styling in my React Native app. The buttons aren't aligning properly on iOS devices, and the shadows look different on Android. Here's my current code:
+    score: 18,
+    content: `I noticed this unusual rash on my forearm 3 days ago. Here are the details:
+    
+• Circular pattern with raised edges
+• Mild itching but no pain
+• Not responding to hydrocortisone cream
+• No known allergies or exposure to new products
 
-\`\`\`javascript
-<View style={styles.container}>
-  <Button title="Submit" style={styles.button} />
-</View>
-\`\`\`
+The rash looks like this: [photo included]
 
-And my stylesheet:
+Additional context:
+- I haven't traveled recently
+- No insect bites that I noticed
+- No fever or other symptoms
 
-\`\`\`javascript
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  button: {
-    padding: 10,
-    backgroundColor: '#A1CEDC',
-  }
-});
-\`\`\`
-
-Can someone explain why this might be rendering differently across platforms and suggest a solution?`,
+Could this be ringworm, eczema, or something else? Should I see a doctor immediately?`,
     attachments: [
       {
         type: 'image',
-        source: require('@/assets/images/code-image.png') // Update path
+        source: require('@/assets/images/arm view.jpg')
       },
       {
         type: 'image',
-        source: require('@/assets/images/UI screen.png') // Update path
+        source: require('@/assets/images/arm closeup picture.jpg')
       }
     ],
     comments: [
       {
         id: 1,
-        author: "ReactNativeExpert",
-        score: 8,
-        content: "You need to use Platform-specific styling. Try Platform.select() for different styles per OS.",
+        author: "DrSkinExpert",
+        score: 12,
+        content: "This appears to be nummular eczema. Try using a moisturizer with ceramides and avoid scratching. If it spreads, see a dermatologist.",
         timestamp: "2 hours ago"
       },
       {
         id: 2,
-        author: "MobileDev123",
-        score: 5,
-        content: "For shadows, use the elevation prop on Android and shadow props on iOS.",
+        author: "MedStudent2023",
+        score: 8,
+        content: "Could be ringworm - look for slight scaling at the edges. An OTC antifungal cream might help if it is fungal.",
         timestamp: "1 hour ago"
       },
       {
         id: 3,
-        author: "UI_Specialist",
-        score: 3,
-        content: "Consider using a UI library like NativeBase for more consistent cross-platform components.",
-        timestamp: "30 minutes ago"
+        author: "AllergyMom",
+        score: 5,
+        content: "Have you used any new detergents? The circular pattern makes me think of contact dermatitis.",
+        timestamp: "45 minutes ago"
       }
     ]
   };
@@ -86,9 +78,10 @@ Can someone explain why this might be rendering differently across platforms and
       }>
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">{question.title}</ThemedText>
+        <ThemedText style={styles.usernameText}>Asked by {question.username}</ThemedText>
       </ThemedView>
 
-      {/* Question Content with light blue background */}
+      {/* Question Content */}
       <ThemedView style={styles.questionContent}>
         <View style={styles.bountyRow}>
           <ThemedText style={styles.cashBounty}>£{question.bountyCash.toFixed(2)}</ThemedText>
@@ -96,7 +89,7 @@ Can someone explain why this might be rendering differently across platforms and
         </View>
         <View style={styles.metaData}>
           <ThemedText>⏱️ {question.timeLeft} remaining</ThemedText>
-          <ThemedText>📚 {question.category}</ThemedText>
+          <ThemedText>🏥 {question.category}</ThemedText>
           <ThemedText>💬 {question.answers} answers</ThemedText>
           <ThemedText>👍 {question.score} votes</ThemedText>
         </View>
@@ -110,7 +103,7 @@ Can someone explain why this might be rendering differently across platforms and
           {question.attachments.map((attachment, index) => (
             <Image
               key={index}
-              source={attachment.source} // Changed from uri to source
+              source={attachment.source}
               style={styles.attachmentImage}
               resizeMode="contain"
             />
@@ -124,18 +117,18 @@ Can someone explain why this might be rendering differently across platforms and
         <TextInput
           style={styles.answerInput}
           multiline
-          placeholder="Type your detailed answer here..."
+          placeholder="Provide your medical opinion or personal experience..."
           placeholderTextColor="#999"
         />
         <View style={styles.answerActions}>
-          <ThemedText style={styles.actionButton}>Attach Files</ThemedText>
+          <ThemedText style={styles.actionButton}>Attach Photos</ThemedText>
           <ThemedText style={styles.submitButton}>Submit Answer</ThemedText>
         </View>
       </ThemedView>
 
       {/* Comments Section */}
       <ThemedView style={styles.commentsContainer}>
-        <ThemedText type="subtitle">Top Comments ({question.comments.length})</ThemedText>
+        <ThemedText type="subtitle">Community Responses ({question.comments.length})</ThemedText>
 
         {question.comments.sort((a, b) => b.score - a.score).map(comment => (
           <ThemedView key={comment.id} style={styles.commentCard}>
@@ -169,12 +162,6 @@ const styles = StyleSheet.create({
     left: 0,
     position: 'absolute',
   },
-  questionContent: {
-    backgroundColor: 'rgba(161, 206, 220, 0.15)',
-    borderRadius: 8,
-    padding: 16,
-    marginBottom: 16,
-  },
   questionBody: {
     marginVertical: 12,
   },
@@ -201,25 +188,11 @@ const styles = StyleSheet.create({
     marginTop: 16,
     gap: 8,
   },
-  attachmentImage: {
-    width: '100%',
-    height: 200,
-    borderRadius: 8,
-  },
   answerInputContainer: {
     marginBottom: 24,
     padding: 16,
     borderRadius: 8,
     backgroundColor: 'rgba(161, 206, 220, 0.1)',
-  },
-  answerInput: {
-    minHeight: 120,
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 8,
-    padding: 12,
-    marginVertical: 12,
-    textAlignVertical: 'top',
   },
   answerActions: {
     flexDirection: 'row',
@@ -267,4 +240,31 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#666',
   },
+  usernameText: {
+    color: '#666',
+    fontSize: 14,
+    marginTop: 4
+  },
+  questionContent: {
+    backgroundColor: 'rgba(161, 206, 220, 0.15)',
+    borderRadius: 8,
+    padding: 16,
+    marginBottom: 16,
+  },
+  attachmentImage: {
+    width: '100%',
+    height: 250,
+    borderRadius: 8,
+    marginVertical: 8
+  },
+  answerInput: {
+    minHeight: 120,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 8,
+    padding: 12,
+    marginVertical: 12,
+    textAlignVertical: 'top',
+    backgroundColor: 'white'
+  }
 });
