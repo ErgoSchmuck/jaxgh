@@ -11,7 +11,7 @@ export default function AnswerScreen() {
   // Current active question (now generic rash question)
   const activeQuestion = {
     id: 1,
-    username: "@HealthConcerned",
+    username: "@exampleUser1",
     title: "What's causing this specific rash pattern on my forearm? (Photo included)",
     bountyCash: 0.85,
     bountyGreyMatter: 75,
@@ -23,12 +23,23 @@ export default function AnswerScreen() {
 
   // Queued questions (technical question moved here)
   const queuedQuestions = [
-    {
+
+        {
+      id: 1,
+      title: "Is this antique vase authentic? Here's multiple detailed photos",
+      position: 1,
+      bountyCash: 0.45,
+      bountyGreyMatter: 110,
+      timeUntilActive: "~1h",
+      upvotes: 31,
+      description: "Inherited from grandmother, markings suggest Ming Dynasty but need expert eyes"
+    },
+        {
       id: 2,
       username: "@DevUser123",
       title: "How do I implement secure biometric authentication in React Native?",
-      position: 1,
-      bountyCash: 5.00,
+      position: 2,
+      bountyCash: 0.5,
       bountyGreyMatter: 45,
       timeUntilActive: "~32m",
       upvotes: 12,
@@ -139,7 +150,7 @@ export default function AnswerScreen() {
       {/* Priority Question Section */}
       <ThemedView style={styles.priorityContainer}>
         <ThemedView style={styles.priorityBanner}>
-          <ThemedText type="title" style={styles.priorityText}>@HealthConcerned is Asqing the World...</ThemedText>
+          <ThemedText type="title" style={styles.priorityText}>@exampleUser1 is Asqing the World...</ThemedText>
         </ThemedView>
 
         <ThemedView style={styles.activeQuestionContainer}>

@@ -9,7 +9,7 @@ export default function QuestionDetailScreen() {
   // Updated rash question data
   const question = {
     id: 1,
-    username: "@HealthConcerned",
+    username: "@exampleUser1",
     title: "What's causing this specific rash pattern on my forearm? (Photo included)",
     bountyCash: 0.85,
     bountyGreyMatter: 75,
